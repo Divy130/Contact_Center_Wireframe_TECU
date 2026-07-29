@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TECU Call Center Analytics Dashboard</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
     <style>
         * {
             margin: 0;
@@ -1400,7 +1399,19 @@
     </script>
 
     <script>
-        // Wait for Chart.js to load, then initialize charts
+        // Hide chart placeholders since Chart.js is not available
+        document.addEventListener('DOMContentLoaded', function() {
+            // Hide all chart canvases
+            const canvases = document.querySelectorAll('canvas');
+            canvases.forEach(canvas => {
+                canvas.parentElement.innerHTML = '<p style="text-align: center; padding: 40px; color: #6B7280; font-size: 14px;">📊 Chart visualization not available in this view. View the file locally or in a compatible environment to see interactive charts.</p>';
+            });
+        });
+    </script>
+
+    <script>
+        // Original Chart.js initialization (commented out for SharePoint compatibility)
+        /*
         setTimeout(function() {
             const colors = {
                 primary: '#003366',
@@ -1774,6 +1785,7 @@
 
             console.log('✅ TECU Analytics Dashboard - All charts loaded successfully');
         }, 100);
+        */
     </script>
 </body>
 </html>
