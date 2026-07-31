@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TECU Call Center Analytics Dashboard</title>
+    <title>TECU - Contact Center and Member Communications</title>
+    <script src="chart.js"></script>
     <style>
         * {
             margin: 0;
@@ -628,8 +629,11 @@
     <div class="container">
         <!-- Header -->
         <div class="header">
-            <h1>TECU Call Center Analytics</h1>
+            <h1>TECU - Contact Center and Member Communications</h1>
             <p>Real-time performance reporting & operational insights dashboard</p>
+            <div style="margin-top: 20px; font-size: 14px; opacity: 0.9; border-top: 1px solid rgba(255,255,255,0.3); padding-top: 12px;">
+                <strong>📊 Data Scope:</strong> All Contact Center channels (Voice, Chat, Email) | <strong>📅 Period:</strong> Last 60 days | <strong>🏢 Organization:</strong> TECU Member Services
+            </div>
         </div>
 
         <!-- Tabs Navigation -->
@@ -708,6 +712,16 @@
 
             <!-- Key Metrics Definitions -->
             <h2 class="insights-title" style="margin-top: 50px;">📚 Key Metrics Definitions</h2>
+            <div style="background: rgba(0, 102, 204, 0.08); padding: 16px; border-left: 4px solid #0066CC; border-radius: 6px; margin-bottom: 24px;">
+                <p style="font-size: 13px; color: var(--text-dark); margin: 0;">
+                    <strong>⚠️ Important Notes on KPI Comparisons:</strong>
+                </p>
+                <ul style="font-size: 13px; color: var(--text-dark); margin: 8px 0 0 20px; padding: 0;">
+                    <li><strong>Percentages vs. Percentages:</strong> When comparing two percentages (e.g., "SLA improved 3%"), this means the metric moved from 88% to 91% - NOT a 3% increase in percentage points shown as "91.64%". The format "↑ 3% vs target" means "3 percentage points higher".</li>
+                    <li><strong>Why % KPIs can't increase by %:</strong> Percentage metrics are already ratios/fractions (0-100%). Increasing "91% by 5%" would mathematically be 95.55%, but operationally we mean "move toward higher achievement" (e.g., 91% → 96%).</li>
+                    <li><strong>Data Scope:</strong> All KPIs span all channels (Voice, Chat, Email) unless otherwise noted in the time range selector above.</li>
+                </ul>
+            </div>
             <div class="metrics-grid">
                 <div class="metric-card">
                     <div class="metric-header">
@@ -718,6 +732,7 @@
                         <p><strong>SLA:</strong> Service Level Agreement - A commitment to answer customer interactions within a specified timeframe.</p>
                         <p><strong>Definition:</strong> Percentage of interactions answered or responded to within the defined SLA timeframe set by the organization.</p>
                         <p><strong>Formula:</strong> (Interactions answered within SLA time / Total interactions) × 100</p>
+                        <p><strong style="color: var(--tecu-blue);">Data Scope:</strong> All channels | <strong>Target:</strong> ≥90% | <strong>Range:</strong> Voice: 2min, Chat: 1min, Email: 4hrs</p>
                     </div>
                 </div>
 
@@ -729,6 +744,7 @@
                     <div class="metric-content">
                         <p><strong>Definition:</strong> Average time agents spend on handling a single customer interaction (call, chat, or email).</p>
                         <p><strong>Formula:</strong> Total handling time / Number of interactions</p>
+                        <p><strong style="color: var(--tecu-blue);">Data Scope:</strong> All channels combined | <strong>Target:</strong> ≤7.5 mins | <strong>Unit:</strong> Minutes:Seconds | <strong>Excludes:</strong> After-call work time</p>
                     </div>
                 </div>
 
@@ -740,6 +756,7 @@
                     <div class="metric-content">
                         <p><strong>Definition:</strong> Percentage of customer issues resolved on the first interaction without requiring follow-up.</p>
                         <p><strong>Formula:</strong> (Issues resolved on first contact / Total interactions) × 100</p>
+                        <p><strong style="color: var(--tecu-blue);">Data Scope:</strong> All channels | <strong>Target:</strong> ≥90% | <strong>Measured by:</strong> Agent notes + follow-up ticket tracking | <strong>Industry Benchmark:</strong> 75-85%</p>
                     </div>
                 </div>
 
@@ -751,6 +768,7 @@
                     <div class="metric-content">
                         <p><strong>Definition:</strong> Customer Satisfaction Score - measures member satisfaction on a 10-point scale.</p>
                         <p><strong>Calculation:</strong> Post-call survey rating average</p>
+                        <p><strong style="color: var(--tecu-blue);">Data Scope:</strong> All channels | <strong>Scale:</strong> 1-10 (10=Excellent) | <strong>Target:</strong> ≥8.5 | <strong>Response Rate:</strong> ~35% of interactions</p>
                     </div>
                 </div>
 
@@ -762,6 +780,7 @@
                     <div class="metric-content">
                         <p><strong>Definition:</strong> Percentage of time agents spend handling interactions vs. total available time.</p>
                         <p><strong>Formula:</strong> (Talk time / Available time) × 100</p>
+                        <p><strong style="color: var(--tecu-blue);">Data Scope:</strong> Current shift only (real-time) | <strong>Target:</strong> 80-90% (optimal range) | <strong>Includes:</strong> Talk + Hold time | <strong>Excludes:</strong> Breaks & training</p>
                     </div>
                 </div>
 
@@ -773,6 +792,7 @@
                     <div class="metric-content">
                         <p><strong>Definition:</strong> Overall compliance score based on call quality audits across multiple criteria.</p>
                         <p><strong>Criteria:</strong> Greeting, verification, tone, resolution, documentation</p>
+                        <p><strong style="color: var(--tecu-blue);">Data Scope:</strong> Random sample of calls (45% coverage last 30 days) | <strong>Target:</strong> ≥90% | <strong>Audited by:</strong> QA team, Compliance & Supervisors | <strong>Review Time:</strong> 24-48hrs post-call</p>
                     </div>
                 </div>
             </div>
@@ -852,7 +872,10 @@
                 <div class="chart-box">
                     <div class="chart-title">
                         Volume & SLA Trend (30 Days)
-                        <span class="chart-meta">Line + Dual Axis</span>
+                        <span class="chart-meta">Y-Left: Total Interactions | Y-Right: SLA Compliance %</span>
+                    </div>
+                    <div style="font-size: 12px; color: var(--text-gray); margin-bottom: 10px;">
+                        <strong>X-Axis:</strong> Days (Day 1 to Day 30) | <strong>Interpretation:</strong> Tracks incoming interaction volume against SLA compliance targets
                     </div>
                     <div class="chart-canvas">
                         <canvas id="volumeSlaChart"></canvas>
@@ -861,8 +884,11 @@
 
                 <div class="chart-box">
                     <div class="chart-title">
-                        Channel Distribution
-                        <span class="chart-meta">By volume %</span>
+                        Channel Distribution (Current Period)
+                        <span class="chart-meta">% of Total Volume</span>
+                    </div>
+                    <div style="font-size: 12px; color: var(--text-gray); margin-bottom: 10px;">
+                        <strong>Data Scope:</strong> All channels measured in same period | <strong>Legend:</strong> Voice (50%), Chat (33%), Email (17%)
                     </div>
                     <div class="chart-canvas">
                         <canvas id="channelChart"></canvas>
@@ -873,8 +899,11 @@
             <div class="chart-grid">
                 <div class="chart-box">
                     <div class="chart-title">
-                        Hourly Volume Pattern
-                        <span class="chart-meta">24-hour cycle - Stacked bars</span>
+                        Hourly Volume Pattern (24-hour Cycle)
+                        <span class="chart-meta">Stacked by Channel</span>
+                    </div>
+                    <div style="font-size: 12px; color: var(--text-gray); margin-bottom: 10px;">
+                        <strong>X-Axis:</strong> Time of Day (00:00 to 22:00) | <strong>Y-Axis:</strong> Number of Interactions | <strong>Peak Hours:</strong> 10h-14h
                     </div>
                     <div class="chart-canvas">
                         <canvas id="hourlyChart"></canvas>
@@ -883,8 +912,11 @@
 
                 <div class="chart-box">
                     <div class="chart-title">
-                        AHT Trend Analysis
-                        <span class="chart-meta">Weekly average</span>
+                        Average Handling Time (AHT) Trend
+                        <span class="chart-meta">Weekly Average in Minutes</span>
+                    </div>
+                    <div style="font-size: 12px; color: var(--text-gray); margin-bottom: 10px;">
+                        <strong>X-Axis:</strong> Weeks (1-5) | <strong>Y-Axis:</strong> AHT in Minutes (0-10) | <strong>Target:</strong> ≤ 7.5 mins | <strong>Trend:</strong> Improving
                     </div>
                     <div class="chart-canvas">
                         <canvas id="ahtChart"></canvas>
@@ -1014,8 +1046,11 @@
             <div class="chart-grid">
                 <div class="chart-box">
                     <div class="chart-title">
-                        Queue Depth (24h) - Area Chart
-                        <span class="chart-meta">Real-time trend</span>
+                        Queue Depth (24-Hour View)
+                        <span class="chart-meta">Real-time Area Chart</span>
+                    </div>
+                    <div style="font-size: 12px; color: var(--text-gray); margin-bottom: 10px;">
+                        <strong>X-Axis:</strong> Time of Day (00:00 to 24:00) | <strong>Y-Axis:</strong> Queue Depth (0-35 interactions) | <strong>Healthy Range:</strong> &lt;20
                     </div>
                     <div class="chart-canvas">
                         <canvas id="queueChart"></canvas>
@@ -1024,8 +1059,11 @@
 
                 <div class="chart-box">
                     <div class="chart-title">
-                        Channel Load Distribution - Bubble
-                        <span class="chart-meta">Live snapshot</span>
+                        Channel Load Distribution (Live Snapshot)
+                        <span class="chart-meta">Bubble Size = Traffic Volume | Y-Axis = Utilization %</span>
+                    </div>
+                    <div style="font-size: 12px; color: var(--text-gray); margin-bottom: 10px;">
+                        <strong>X-Axis:</strong> Channel Type | <strong>Y-Axis:</strong> Utilization % (0-100%) | <strong>Data:</strong> Current shift only
                     </div>
                     <div class="chart-canvas">
                         <canvas id="channelLoadChart"></canvas>
@@ -1036,8 +1074,11 @@
             <div class="chart-grid full">
                 <div class="chart-box">
                     <div class="chart-title">
-                        24-Hour Forecast - Bar with Target Line
-                        <span class="chart-meta">Predicted volume vs capacity</span>
+                        24-Hour Volume Forecast
+                        <span class="chart-meta">Predicted Volume vs Hourly Capacity</span>
+                    </div>
+                    <div style="font-size: 12px; color: var(--text-gray); margin-bottom: 10px;">
+                        <strong>X-Axis:</strong> Hour of Day (00:00 to 24:00) | <strong>Y-Axis:</strong> Predicted Interactions per Hour | <strong>Purpose:</strong> Capacity planning and staffing
                     </div>
                     <div class="chart-canvas">
                         <canvas id="forecastChart"></canvas>
@@ -1167,8 +1208,11 @@
             <div class="chart-grid">
                 <div class="chart-box">
                     <div class="chart-title">
-                        QA Score Distribution - Gauge (Doughnut)
-                        <span class="chart-meta">Overall compliance</span>
+                        Overall QA Compliance Score
+                        <span class="chart-meta">Gauge Display (Doughnut)</span>
+                    </div>
+                    <div style="font-size: 12px; color: var(--text-gray); margin-bottom: 10px;">
+                        <strong>Metric:</strong> % of Calls Meeting All QA Standards | <strong>Target:</strong> 90% | <strong>Current:</strong> 92% | <strong>Status:</strong> Exceeding Target
                     </div>
                     <div class="chart-canvas">
                         <canvas id="gaugeChart"></canvas>
@@ -1177,8 +1221,11 @@
 
                 <div class="chart-box">
                     <div class="chart-title">
-                        QA Criteria Breakdown - Horizontal Bar
-                        <span class="chart-meta">By category</span>
+                        QA Performance by Criterion
+                        <span class="chart-meta">Horizontal Bar Chart</span>
+                    </div>
+                    <div style="font-size: 12px; color: var(--text-gray); margin-bottom: 10px;">
+                        <strong>X-Axis:</strong> Score % (0-100) | <strong>Y-Axis:</strong> QA Criteria (Greeting, Verification, Tone, Resolution, Documentation) | <strong>Data Scope:</strong> Last 30 days
                     </div>
                     <div class="chart-canvas">
                         <canvas id="qaChart"></canvas>
@@ -1304,8 +1351,11 @@
             <div class="chart-grid">
                 <div class="chart-box">
                     <div class="chart-title">
-                        Sentiment Trend - Stacked Area Chart
-                        <span class="chart-meta">6-week rolling view</span>
+                        Member Sentiment Trend (6 Weeks)
+                        <span class="chart-meta">Stacked Area Chart</span>
+                    </div>
+                    <div style="font-size: 12px; color: var(--text-gray); margin-bottom: 10px;">
+                        <strong>X-Axis:</strong> Weeks (1-6) | <strong>Y-Axis:</strong> Percentage of Interactions (0-100%) | <strong>Note:</strong> % cannot sum exceeding 100% - shows distribution across sentiment categories
                     </div>
                     <div class="chart-canvas">
                         <canvas id="sentimentTrendChart"></canvas>
@@ -1314,8 +1364,11 @@
 
                 <div class="chart-box">
                     <div class="chart-title">
-                        Sentiment Distribution - Pie Chart
-                        <span class="chart-meta">Current period</span>
+                        Current Period Sentiment Distribution
+                        <span class="chart-meta">Pie Chart - Last 30 Days</span>
+                    </div>
+                    <div style="font-size: 12px; color: var(--text-gray); margin-bottom: 10px;">
+                        <strong>Data Scope:</strong> Last 30 days | <strong>Total Sample:</strong> All interactions surveyed | <strong>Breakdown:</strong> Positive (78%), Neutral (15%), Negative (7%)
                     </div>
                     <div class="chart-canvas">
                         <canvas id="sentimentPieChart"></canvas>
@@ -1365,6 +1418,7 @@
             </section>
         </div>
     </div>
+    </div>
 
     <script>
         // Tab switching functionality
@@ -1399,20 +1453,13 @@
     </script>
 
     <script>
-        // Hide chart placeholders since Chart.js is not available
-        document.addEventListener('DOMContentLoaded', function() {
-            // Hide all chart canvases
-            const canvases = document.querySelectorAll('canvas');
-            canvases.forEach(canvas => {
-                canvas.parentElement.innerHTML = '<p style="text-align: center; padding: 40px; color: #6B7280; font-size: 14px;">📊 Chart visualization not available in this view. View the file locally or in a compatible environment to see interactive charts.</p>';
-            });
-        });
-    </script>
+        // Wait for Chart.js to load before initializing charts
+        function initCharts() {
+            if (typeof Chart === 'undefined') {
+                setTimeout(initCharts, 100);
+                return;
+            }
 
-    <script>
-        // Original Chart.js initialization (commented out for SharePoint compatibility)
-        /*
-        setTimeout(function() {
             const colors = {
                 primary: '#003366',
                 secondary: '#0066CC',
@@ -1784,8 +1831,14 @@
             }
 
             console.log('✅ TECU Analytics Dashboard - All charts loaded successfully');
-        }, 100);
-        */
+        }
+
+        // Initialize charts when DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initCharts);
+        } else {
+            initCharts();
+        }
     </script>
 </body>
 </html>
