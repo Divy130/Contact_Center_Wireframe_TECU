@@ -632,7 +632,7 @@
             <h1>TECU - Contact Center and Member Communications</h1>
             <p>Real-time performance reporting & operational insights dashboard</p>
             <div style="margin-top: 20px; font-size: 14px; opacity: 0.9; border-top: 1px solid rgba(255,255,255,0.3); padding-top: 12px;">
-                <strong>📊 Data Scope:</strong> All Contact Center channels (Voice, Chat, Email) | <strong>📅 Period:</strong> Last 60 days | <strong>🏢 Organization:</strong> TECU Member Services
+                <strong>📊 Data Scope:</strong> All Contact Center channels (Voice, Chat, Email) | <strong>📅 Period:</strong> June 1 - July 31, 2024 (60 days) | <strong>🏢 Organization:</strong> TECU Member Services
             </div>
         </div>
 
@@ -640,11 +640,185 @@
         <div class="tabs-container">
             <div class="tabs-nav">
                 <button class="tab-btn active" data-tab="overview">📊 Overview</button>
+                <button class="tab-btn" data-tab="glossary">📖 Glossary</button>
                 <button class="tab-btn" data-tab="performance">📈 Performance</button>
                 <button class="tab-btn" data-tab="realtime">📡 Real-time</button>
                 <button class="tab-btn" data-tab="quality">✅ Quality</button>
                 <button class="tab-btn" data-tab="sentiment">😊 Sentiment</button>
             </div>
+        </div>
+
+        <!-- ===== GLOSSARY TAB ===== -->
+        <div id="glossary" class="tab-content">
+            <section class="section">
+                <h2 class="section-title">📖 Dashboard Glossary & Quick Guide</h2>
+                <p style="margin-bottom: 30px; font-size: 15px; color: var(--text-gray);">New to this dashboard? This guide explains the common terms and what they mean in plain English.</p>
+
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-header">
+                            <div class="metric-icon">📞</div>
+                            <div class="metric-title">Volume (Interactions)</div>
+                        </div>
+                        <div class="metric-content">
+                            <p><strong>Simple Definition:</strong> The number of customer calls, chats, or emails we received in a time period.</p>
+                            <p><strong>Example:</strong> "Volume is 7,842" means we handled 7,842 customer contacts in one day/week/month.</p>
+                            <p><strong>Why We Track It:</strong> High volume means busy times when we need more staff. Low volume means we're overstaffed.</p>
+                        </div>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="metric-header">
+                            <div class="metric-icon">⏰</div>
+                            <div class="metric-title">SLA (Service Level Agreement)</div>
+                        </div>
+                        <div class="metric-content">
+                            <p><strong>Simple Definition:</strong> A promise we make to customers: "We will answer your call within 2 minutes."</p>
+                            <p><strong>SLA % Meaning:</strong> "91% SLA" = 91 out of 100 customers got their call answered on time. 9 had to wait longer than promised.</p>
+                            <p><strong>Target:</strong> We aim for 90% or higher. That means at least 9 out of 10 customers get helped on time.</p>
+                            <p><strong>Different SLAs by Channel:</strong> Voice (2 min), Chat (1 min), Email (4 hrs)</p>
+                        </div>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="metric-header">
+                            <div class="metric-icon">✅</div>
+                            <div class="metric-title">FCR - First Contact Resolution</div>
+                        </div>
+                        <div class="metric-content">
+                            <p><strong>Simple Definition:</strong> When an agent solves a customer's problem on the FIRST call (no callback needed).</p>
+                            <p><strong>Example:</strong> Customer calls → Agent helps → Problem fixed → No follow-up call needed = FCR!</p>
+                            <p><strong>FCR % Meaning:</strong> "87% FCR" = 87 out of 100 customers didn't need to call back.</p>
+                            <p><strong>Why It Matters:</strong> Customers are happy. We save money (no second call). Target: ≥90%</p>
+                        </div>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="metric-header">
+                            <div class="metric-icon">⏱️</div>
+                            <div class="metric-title">AHT - Average Handling Time</div>
+                        </div>
+                        <div class="metric-content">
+                            <p><strong>Simple Definition:</strong> How long (in minutes) does it take an agent to help one customer?</p>
+                            <p><strong>Example:</strong> "AHT is 8 minutes 42 seconds" = On average, each call takes 8.7 minutes to complete.</p>
+                            <p><strong>Why It Matters:</strong> Faster isn't always better (might mean poor quality). Slower isn't always bad. Target: ≤7.5 mins per call</p>
+                            <p><strong>Formula:</strong> Total time spent on calls ÷ Number of calls = AHT</p>
+                        </div>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="metric-header">
+                            <div class="metric-icon">😊</div>
+                            <div class="metric-title">CSAT - Customer Satisfaction</div>
+                        </div>
+                        <div class="metric-content">
+                            <p><strong>Simple Definition:</strong> How happy customers are after talking to us. Measured on a scale of 1-10.</p>
+                            <p><strong>Example:</strong> "CSAT is 8.1 out of 10" = Customers rate their experience 8.1 out of 10. Pretty good!</p>
+                            <p><strong>Target:</strong> ≥8.5 out of 10</p>
+                            <p><strong>How We Get It:</strong> We send a quick text or email survey after each call asking "How satisfied are you?"</p>
+                        </div>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="metric-header">
+                            <div class="metric-icon">👥</div>
+                            <div class="metric-title">Utilization Rate</div>
+                        </div>
+                        <div class="metric-content">
+                            <p><strong>Simple Definition:</strong> What % of their shift does an agent spend helping customers (vs. idle time)?</p>
+                            <p><strong>Example:</strong> "87% utilization" = Agent spends 87% of shift on calls/chats, 13% on breaks/admin.</p>
+                            <p><strong>Healthy Range:</strong> 80-90% is optimal. Too low = overstaffed. Too high = agents burning out.</p>
+                            <p><strong>Formula:</strong> (Talk time ÷ Available time) × 100 = Utilization %</p>
+                        </div>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="metric-header">
+                            <div class="metric-icon">⚖️</div>
+                            <div class="metric-title">QA Score - Quality Assurance</div>
+                        </div>
+                        <div class="metric-content">
+                            <p><strong>Simple Definition:</strong> How well agents follow company rules and best practices.</p>
+                            <p><strong>What We Check:</strong> Greeting ("Hi, thanks for calling!"), Verification (asking for account #), Tone (friendly?), Resolution (did they fix the problem?), Documentation (did they take notes?)</p>
+                            <p><strong>Example:</strong> "92% QA Score" = 92 out of 100 calls meet all our standards. Target: ≥90%</p>
+                            <p><strong>How It Works:</strong> QA team randomly listens to ~45% of calls and scores them.</p>
+                        </div>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="metric-header">
+                            <div class="metric-icon">📊</div>
+                            <div class="metric-title">Data Scope & Time Frames</div>
+                        </div>
+                        <div class="metric-content">
+                            <p><strong>What "Data Scope" Means:</strong> Which calls are included in this number?</p>
+                            <p><strong>Example Scopes:</strong>
+                                <br/>• "All Channels" = Voice + Chat + Email calls combined
+                                <br/>• "Last 30 Days" = June 1 - July 1, 2024
+                                <br/>• "Current Shift Only" = Agents working RIGHT NOW
+                            </p>
+                            <p><strong>Why It Matters:</strong> You can't compare "all channels" with "voice only" - different numbers!</p>
+                            <p><strong>Always Check the Filter:</strong> Click "Channel" or "Date Range" to see exactly what data you're looking at.</p>
+                        </div>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="metric-header">
+                            <div class="metric-icon">📈</div>
+                            <div class="metric-title">Reading Percentages Correctly</div>
+                        </div>
+                        <div class="metric-content">
+                            <p><strong>The Confusing Part:</strong> "91% SLA improved 3%" - does that mean 94.73%? NO!</p>
+                            <p><strong>What It Actually Means:</strong> Last period was 88%, this period is 91%. That's a 3 percentage point increase.</p>
+                            <p><strong>Why?</strong> Percentages are already max'd at 100%. You can't increase 91% by 5% to get 95.55% - doesn't make sense operationally.</p>
+                            <p><strong>Always Read It Like This:</strong> "↑ 3% vs target" means "3 points higher than target" not "multiply by 1.03"</p>
+                        </div>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="metric-header">
+                            <div class="metric-icon">🔮</div>
+                            <div class="metric-title">How We Predict Future Volume</div>
+                        </div>
+                        <div class="metric-content">
+                            <p><strong>Simple Explanation:</strong> We look at the past 30 days of volume patterns and predict tomorrow's traffic.</p>
+                            <p><strong>Example:</strong> "Tuesdays between 10-11am always get 150+ calls" → We predict next Tuesday same thing</p>
+                            <p><strong>What Affects Predictions:</strong> Day of week, time of day, holidays, weather, recent trends</p>
+                            <p><strong>How Accurate?</strong> Usually 80-90% accurate. Used to schedule staff.</p>
+                            <p><strong>Where You'll See It:</strong> "24-Hour Volume Forecast" chart in Real-time tab</p>
+                        </div>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="metric-header">
+                            <div class="metric-icon">📅</div>
+                            <div class="metric-title">Period Definitions</div>
+                        </div>
+                        <div class="metric-content">
+                            <p><strong>Current Period:</strong> June 1, 2024 → July 31, 2024 (60 days)</p>
+                            <p><strong>Last Period:</strong> April 2, 2024 → June 1, 2024 (same length, before current period)</p>
+                            <p><strong>Last 30 Days:</strong> June 1 → July 1, 2024</p>
+                            <p><strong>Last 7 Days:</strong> July 25 → July 31, 2024</p>
+                            <p><strong>Real-time/Current Shift:</strong> RIGHT NOW (last 1-4 hours)</p>
+                        </div>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="metric-header">
+                            <div class="metric-icon">🟢🟡🔴</div>
+                            <div class="metric-title">Status Colors (Quick Reference)</div>
+                        </div>
+                        <div class="metric-content">
+                            <p><strong>🟢 Green (Good Status)</strong></p>
+                            <p style="margin-left: 12px;">✓ Excellent, ✓ Good, ↑ Improving, On track</p>
+                            <p><strong>🟡 Yellow (Warning)</strong></p>
+                            <p style="margin-left: 12px;">⚠️ Watch, ⚠️ Monitor, Check this area</p>
+                            <p><strong>🔴 Red (Action Needed)</strong></p>
+                            <p style="margin-left: 12px;">✗ Below target, ✗ Needs attention</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
 
         <!-- ===== OVERVIEW TAB ===== -->
@@ -714,12 +888,13 @@
             <h2 class="insights-title" style="margin-top: 50px;">📚 Key Metrics Definitions</h2>
             <div style="background: rgba(0, 102, 204, 0.08); padding: 16px; border-left: 4px solid #0066CC; border-radius: 6px; margin-bottom: 24px;">
                 <p style="font-size: 13px; color: var(--text-dark); margin: 0;">
-                    <strong>⚠️ Important Notes on KPI Comparisons:</strong>
+                    <strong>⚠️ Important Notes on KPI Comparisons & Reading the Data:</strong>
                 </p>
                 <ul style="font-size: 13px; color: var(--text-dark); margin: 8px 0 0 20px; padding: 0;">
-                    <li><strong>Percentages vs. Percentages:</strong> When comparing two percentages (e.g., "SLA improved 3%"), this means the metric moved from 88% to 91% - NOT a 3% increase in percentage points shown as "91.64%". The format "↑ 3% vs target" means "3 percentage points higher".</li>
-                    <li><strong>Why % KPIs can't increase by %:</strong> Percentage metrics are already ratios/fractions (0-100%). Increasing "91% by 5%" would mathematically be 95.55%, but operationally we mean "move toward higher achievement" (e.g., 91% → 96%).</li>
-                    <li><strong>Data Scope:</strong> All KPIs span all channels (Voice, Chat, Email) unless otherwise noted in the time range selector above.</li>
+                    <li><strong>Volume & SLA Comparison:</strong> We compare Volume (number of customer interactions) with SLA (% of interactions answered on time). <strong>Why?</strong> High volume doesn't automatically mean poor SLA - we monitor both to understand if we're handling more calls while maintaining quality.</li>
+                    <li><strong>Percentages vs. Percentages:</strong> When we say "SLA improved 3%", this means the metric moved from 88% to 91% (3 percentage points higher). It does NOT mean "91% × 1.03 = 93.73%".</li>
+                    <li><strong>Last Period Definition:</strong> "Last period" means the previous 60 days before the current reporting period. Current period: June 1 - July 31, 2024. Previous period: April 2 - June 1, 2024.</li>
+                    <li><strong>Data Scope:</strong> All KPIs include all channels (Voice, Chat, Email) unless otherwise noted. Use filters above to drill down by specific channel or queue.</li>
                 </ul>
             </div>
             <div class="metrics-grid">
@@ -754,9 +929,11 @@
                         <div class="metric-title">First Contact Resolution (FCR)</div>
                     </div>
                     <div class="metric-content">
-                        <p><strong>Definition:</strong> Percentage of customer issues resolved on the first interaction without requiring follow-up.</p>
-                        <p><strong>Formula:</strong> (Issues resolved on first contact / Total interactions) × 100</p>
-                        <p><strong style="color: var(--tecu-blue);">Data Scope:</strong> All channels | <strong>Target:</strong> ≥90% | <strong>Measured by:</strong> Agent notes + follow-up ticket tracking | <strong>Industry Benchmark:</strong> 75-85%</p>
+                        <p><strong>Definition:</strong> Percentage of customer issues resolved on the first interaction without requiring follow-up or callback.</p>
+                        <p><strong>Formula:</strong> (Issues resolved on first contact / Total interactions) × 100 = FCR %</p>
+                        <p><strong>Example:</strong> If 870 out of 1,000 interactions are resolved on first contact: (870 ÷ 1,000) × 100 = 87% FCR</p>
+                        <p><strong>Why It Matters:</strong> Higher FCR means customers get answers faster and don't have to call back. Industry standard is 75-85%, our target is ≥90%.</p>
+                        <p><strong style="color: var(--tecu-blue);">Data Scope:</strong> All channels | <strong>Target:</strong> ≥90% | <strong>Measured by:</strong> Agent notes + follow-up ticket tracking</p>
                     </div>
                 </div>
 
@@ -872,10 +1049,10 @@
                 <div class="chart-box">
                     <div class="chart-title">
                         Volume & SLA Trend (30 Days)
-                        <span class="chart-meta">Y-Left: Total Interactions | Y-Right: SLA Compliance %</span>
+                        <span class="chart-meta">Dual-Axis Chart</span>
                     </div>
                     <div style="font-size: 12px; color: var(--text-gray); margin-bottom: 10px;">
-                        <strong>X-Axis:</strong> Days (Day 1 to Day 30) | <strong>Interpretation:</strong> Tracks incoming interaction volume against SLA compliance targets
+                        <strong>X-Axis:</strong> Date (June 1 - June 30, 2024) | <strong>Y-Left Axis:</strong> Total Interactions (count) | <strong>Y-Right Axis:</strong> SLA Compliance (%) | <strong>What to Look For:</strong> Do both lines trend up? That means more calls handled on time.
                     </div>
                     <div class="chart-canvas">
                         <canvas id="volumeSlaChart"></canvas>
@@ -885,10 +1062,10 @@
                 <div class="chart-box">
                     <div class="chart-title">
                         Channel Distribution (Current Period)
-                        <span class="chart-meta">% of Total Volume</span>
+                        <span class="chart-meta">Donut Chart - % of Total Volume</span>
                     </div>
                     <div style="font-size: 12px; color: var(--text-gray); margin-bottom: 10px;">
-                        <strong>Data Scope:</strong> All channels measured in same period | <strong>Legend:</strong> Voice (50%), Chat (33%), Email (17%)
+                        <strong>Period:</strong> June 1 - July 31, 2024 | <strong>What This Shows:</strong> Which channel receives most customer contacts? Voice (50%), Chat (33%), Email (17%) | <strong>Why It Matters:</strong> Helps us staff the right channels
                     </div>
                     <div class="chart-canvas">
                         <canvas id="channelChart"></canvas>
@@ -900,10 +1077,10 @@
                 <div class="chart-box">
                     <div class="chart-title">
                         Hourly Volume Pattern (24-hour Cycle)
-                        <span class="chart-meta">Stacked by Channel</span>
+                        <span class="chart-meta">Stacked Bar Chart - By Channel</span>
                     </div>
                     <div style="font-size: 12px; color: var(--text-gray); margin-bottom: 10px;">
-                        <strong>X-Axis:</strong> Time of Day (00:00 to 22:00) | <strong>Y-Axis:</strong> Number of Interactions | <strong>Peak Hours:</strong> 10h-14h
+                        <strong>X-Axis:</strong> Time of Day (00:00 to 22:00) | <strong>Y-Axis:</strong> Number of Interactions (0-600) | <strong>What This Shows:</strong> When do customers contact us most? Peak: 10:00-14:00 (morning/lunch) | <strong>Used For:</strong> Scheduling staff breaks and shifts
                     </div>
                     <div class="chart-canvas">
                         <canvas id="hourlyChart"></canvas>
@@ -913,10 +1090,10 @@
                 <div class="chart-box">
                     <div class="chart-title">
                         Average Handling Time (AHT) Trend
-                        <span class="chart-meta">Weekly Average in Minutes</span>
+                        <span class="chart-meta">Weekly Trend Line</span>
                     </div>
                     <div style="font-size: 12px; color: var(--text-gray); margin-bottom: 10px;">
-                        <strong>X-Axis:</strong> Weeks (1-5) | <strong>Y-Axis:</strong> AHT in Minutes (0-10) | <strong>Target:</strong> ≤ 7.5 mins | <strong>Trend:</strong> Improving
+                        <strong>X-Axis:</strong> Weeks (Week 1 - Week 5 of reporting period) | <strong>Y-Axis:</strong> AHT in Minutes (0-10 min) | <strong>Target:</strong> ≤ 7.5 mins | <strong>What This Shows:</strong> Is it taking agents longer or shorter to handle calls? Green = improving
                     </div>
                     <div class="chart-canvas">
                         <canvas id="ahtChart"></canvas>
@@ -1047,10 +1224,10 @@
                 <div class="chart-box">
                     <div class="chart-title">
                         Queue Depth (24-Hour View)
-                        <span class="chart-meta">Real-time Area Chart</span>
+                        <span class="chart-meta">Area Chart - Real-time Snapshot</span>
                     </div>
                     <div style="font-size: 12px; color: var(--text-gray); margin-bottom: 10px;">
-                        <strong>X-Axis:</strong> Time of Day (00:00 to 24:00) | <strong>Y-Axis:</strong> Queue Depth (0-35 interactions) | <strong>Healthy Range:</strong> &lt;20
+                        <strong>X-Axis:</strong> Time of Day (00:00 to 24:00) | <strong>Y-Axis:</strong> Customers Waiting in Queue (0-35) | <strong>Healthy Range:</strong> &lt;20 customers | <strong>What to Watch:</strong> If queue > 20, we need more agents
                     </div>
                     <div class="chart-canvas">
                         <canvas id="queueChart"></canvas>
@@ -1060,10 +1237,10 @@
                 <div class="chart-box">
                     <div class="chart-title">
                         Channel Load Distribution (Live Snapshot)
-                        <span class="chart-meta">Bubble Size = Traffic Volume | Y-Axis = Utilization %</span>
+                        <span class="chart-meta">Donut Chart - Current Utilization</span>
                     </div>
                     <div style="font-size: 12px; color: var(--text-gray); margin-bottom: 10px;">
-                        <strong>X-Axis:</strong> Channel Type | <strong>Y-Axis:</strong> Utilization % (0-100%) | <strong>Data:</strong> Current shift only
+                        <strong>Data:</strong> Current shift utilization % by channel (Voice 85%, Chat 82%, Email 78%, Callback 92%, Social 65%) | <strong>What This Shows:</strong> Which channel has the most agent workload right now? | <strong>Current Shift Only</strong>
                     </div>
                     <div class="chart-canvas">
                         <canvas id="channelLoadChart"></canvas>
@@ -1075,10 +1252,10 @@
                 <div class="chart-box">
                     <div class="chart-title">
                         24-Hour Volume Forecast
-                        <span class="chart-meta">Predicted Volume vs Hourly Capacity</span>
+                        <span class="chart-meta">Predicted Interactions for Next 24 Hours</span>
                     </div>
                     <div style="font-size: 12px; color: var(--text-gray); margin-bottom: 10px;">
-                        <strong>X-Axis:</strong> Hour of Day (00:00 to 24:00) | <strong>Y-Axis:</strong> Predicted Interactions per Hour | <strong>Purpose:</strong> Capacity planning and staffing
+                        <strong>X-Axis:</strong> Hour of Day (00:00 to 24:00) | <strong>Y-Axis:</strong> Predicted Interactions per Hour (0-200) | <strong>How Prediction Works:</strong> Based on historical patterns + recent trends from past 30 days | <strong>Purpose:</strong> Help managers schedule the right number of agents for each shift
                     </div>
                     <div class="chart-canvas">
                         <canvas id="forecastChart"></canvas>
@@ -1209,10 +1386,10 @@
                 <div class="chart-box">
                     <div class="chart-title">
                         Overall QA Compliance Score
-                        <span class="chart-meta">Gauge Display (Doughnut)</span>
+                        <span class="chart-meta">Gauge (Doughnut Chart)</span>
                     </div>
                     <div style="font-size: 12px; color: var(--text-gray); margin-bottom: 10px;">
-                        <strong>Metric:</strong> % of Calls Meeting All QA Standards | <strong>Target:</strong> 90% | <strong>Current:</strong> 92% | <strong>Status:</strong> Exceeding Target
+                        <strong>What This Measures:</strong> % of Calls Meeting ALL QA Standards (greeting, tone, resolution, etc.) | <strong>Period:</strong> Last 30 days (June 1 - July 1, 2024) | <strong>Target:</strong> ≥90% | <strong>Current:</strong> 92% ✓ Exceeding Target
                     </div>
                     <div class="chart-canvas">
                         <canvas id="gaugeChart"></canvas>
@@ -1222,10 +1399,10 @@
                 <div class="chart-box">
                     <div class="chart-title">
                         QA Performance by Criterion
-                        <span class="chart-meta">Horizontal Bar Chart</span>
+                        <span class="chart-meta">Horizontal Bar Chart - Last 30 Days</span>
                     </div>
                     <div style="font-size: 12px; color: var(--text-gray); margin-bottom: 10px;">
-                        <strong>X-Axis:</strong> Score % (0-100) | <strong>Y-Axis:</strong> QA Criteria (Greeting, Verification, Tone, Resolution, Documentation) | <strong>Data Scope:</strong> Last 30 days
+                        <strong>X-Axis:</strong> Score % (0-100%) | <strong>Y-Axis:</strong> QA Criteria Tested (Greeting, Verification, Tone, Resolution, Documentation) | <strong>What to Watch:</strong> Which area is lowest? That's where we need training | <strong>Period:</strong> Last 30 days, all queues
                     </div>
                     <div class="chart-canvas">
                         <canvas id="qaChart"></canvas>
@@ -1352,10 +1529,10 @@
                 <div class="chart-box">
                     <div class="chart-title">
                         Member Sentiment Trend (6 Weeks)
-                        <span class="chart-meta">Stacked Area Chart</span>
+                        <span class="chart-meta">Area Chart - Three Lines Stacked</span>
                     </div>
                     <div style="font-size: 12px; color: var(--text-gray); margin-bottom: 10px;">
-                        <strong>X-Axis:</strong> Weeks (1-6) | <strong>Y-Axis:</strong> Percentage of Interactions (0-100%) | <strong>Note:</strong> % cannot sum exceeding 100% - shows distribution across sentiment categories
+                        <strong>X-Axis:</strong> Weeks (Week 1 - Week 6 of June/July 2024) | <strong>Y-Axis:</strong> Percentage of Interactions (0-100%, all three sentiment categories) | <strong>What to Look For:</strong> Is positive (green) going up? Is negative (red) going down? That means happier customers!
                     </div>
                     <div class="chart-canvas">
                         <canvas id="sentimentTrendChart"></canvas>
@@ -1368,7 +1545,7 @@
                         <span class="chart-meta">Pie Chart - Last 30 Days</span>
                     </div>
                     <div style="font-size: 12px; color: var(--text-gray); margin-bottom: 10px;">
-                        <strong>Data Scope:</strong> Last 30 days | <strong>Total Sample:</strong> All interactions surveyed | <strong>Breakdown:</strong> Positive (78%), Neutral (15%), Negative (7%)
+                        <strong>Period:</strong> June 1 - July 1, 2024 | <strong>X-Axis (shown as pie slices):</strong> Three categories: Positive (78% - green), Neutral (15% - yellow), Negative (7% - red) | <strong>Question Answered:</strong> Are most customers happy or unhappy?
                     </div>
                     <div class="chart-canvas">
                         <canvas id="sentimentPieChart"></canvas>
@@ -1528,7 +1705,7 @@
                 }
             });
 
-            // ===== CHANNEL DOUGHNUT CHART =====
+            // ===== CHANNEL DONUT CHART =====
             new Chart(document.getElementById('channelChart'), {
                 type: 'doughnut',
                 data: {
@@ -1537,14 +1714,23 @@
                         data: [50, 33, 17],
                         backgroundColor: [colors.accent, colors.warning, colors.success],
                         borderColor: 'white',
-                        borderWidth: 3,
-                        hoverOffset: 8,
+                        borderWidth: 4,
+                        hoverOffset: 10,
                     }]
                 },
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
-                    plugins: { legend: { display: true, position: 'bottom' } }
+                    plugins: {
+                        legend: { display: true, position: 'bottom' },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return context.label + ': ' + context.parsed + '%';
+                                }
+                            }
+                        }
+                    }
                 }
             });
 
@@ -1636,37 +1822,18 @@
                 }
             });
 
-            // ===== CHANNEL LOAD BUBBLE CHART =====
+            // ===== CHANNEL LOAD DONUT CHART =====
             new Chart(document.getElementById('channelLoadChart'), {
-                type: 'bubble',
+                type: 'doughnut',
                 data: {
-                    datasets: [
-                        {
-                            label: 'Voice',
-                            data: [{ x: 1, y: 85, r: 20 }],
-                            backgroundColor: colors.accent,
-                        },
-                        {
-                            label: 'Chat',
-                            data: [{ x: 2, y: 82, r: 19 }],
-                            backgroundColor: colors.warning,
-                        },
-                        {
-                            label: 'Email',
-                            data: [{ x: 3, y: 78, r: 18 }],
-                            backgroundColor: colors.success,
-                        },
-                        {
-                            label: 'Callback',
-                            data: [{ x: 4, y: 92, r: 21 }],
-                            backgroundColor: colors.primary,
-                        },
-                        {
-                            label: 'Social',
-                            data: [{ x: 5, y: 65, r: 15 }],
-                            backgroundColor: '#FF6B6B',
-                        }
-                    ]
+                    labels: ['Voice (85%)', 'Chat (82%)', 'Email (78%)', 'Callback (92%)', 'Social (65%)'],
+                    datasets: [{
+                        data: [85, 82, 78, 92, 65],
+                        backgroundColor: [colors.accent, colors.warning, colors.success, colors.primary, '#FF6B6B'],
+                        borderColor: 'white',
+                        borderWidth: 4,
+                        hoverOffset: 10,
+                    }]
                 },
                 options: {
                     responsive: true,
@@ -1676,14 +1843,10 @@
                         tooltip: {
                             callbacks: {
                                 label: function(context) {
-                                    return context.raw.y + '% Load';
+                                    return 'Utilization: ' + context.parsed + '%';
                                 }
                             }
                         }
-                    },
-                    scales: {
-                        x: { display: false, min: 0, max: 6 },
-                        y: { beginAtZero: true, max: 100, ticks: { callback: function(v) { return v + '%'; } }, grid: { color: 'rgba(0, 0, 0, 0.05)' } }
                     }
                 }
             });
